@@ -34,4 +34,4 @@
 * 깃배쉬를 열어 
 
 
-`npm install node-sass --global`
+`$ npm install node-sass --global`
