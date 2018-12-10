@@ -34,8 +34,14 @@
 * 깃배쉬를 열어 입력
 
 
-````$ npm install node-sass --global````
+````
+$ npm install node-sass --global
+````
 ````
 $ npm install node-sass # 프로젝트 로컬 설치
 $ npm install node-sass --global # 컴퓨터 전역 설치
 ````
+
+
+* sass 설치 확인
+<img src ="./images/img7.png">
