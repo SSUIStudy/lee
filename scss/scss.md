@@ -84,6 +84,18 @@ $ node-sass sass/style.scss css/style.css
 $ node-sass --watch --recursive sass --output css 
 $ node-sass -w -r sass -o css --output-style expanded --source-map ./map 
 ````
+````
+* 소스맵 - Scss 파일을 컴파일 하여 css 를 배포한후 
+브라우저에서 css 오류 발생시 
+Scss 파일의 오류난 코드의 위치를 알려주는 파일로 유용 
+````
+
+
+* css 파일이 한줄로 바뀐걸확인 할 수 있다 
+* 소스맵 파일 확인
+
+
+<img src ="./images/img14.png">
 
 **옵션**
 
@@ -91,5 +103,24 @@ $ node-sass -w -r sass -o css --output-style expanded --source-map ./map
 ---|---
 --help |도움말 출력 
 -v, --version Sass |버전 정보 출력
---output-style |CSS 출력 스타일 설정 (nested | expanded |compact | compressed) 
-항목|항목
+--output-style |CSS 출력 스타일 설정 (nested ,expanded ,compact , compressed) 
+-w, --watch |디렉토리/파일 관찰 
+-o, --output | 출력 디렉토리 설정
+-r, --recursive | 하위 디렉토리/파일 포함하여 관찰 
+-q, --quiet | 컴파일 오류 발생 로그 말고는 로그(기록)를 제한하는 설정 
+--indent-type | CSS 변환 파일에 사용될 들여쓰기 유형 설정 (space | tab) 
+--indent-width | spaces 또는 tabs의 개수 설정 (최댓값: 10) 
+--source-map | 소스맵 설정 
+--precision | 소수점 자리 설정 (기본값: 4) 
+
+</br>
+
+**css 출력 방식**
+명령어|설명
+---|---
+compact | 한줄로 정리(촘촘하게)
+compress | 압축(공백없이)
+expanded | 확장
+nested | 중첩
+
+3. 컴파일 저장
