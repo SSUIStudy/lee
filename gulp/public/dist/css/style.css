@@ -1,0 +1,28 @@
+input[type="text"],
+input[type="password"] {
+  height: 30px;
+  padding-left: 10px;
+  font-size: 14px;
+  border: 1px solid #000;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input[type="text"].size1,
+input[type="password"].size1 {
+  width: 100px;
+}
+
+input[type="text"].size2,
+input[type="password"].size2 {
+  width: 400px;
+}
+
+p {
+  background-image: url("../images/ico.png");
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=public/style.css.map */

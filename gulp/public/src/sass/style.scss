@@ -1,0 +1,43 @@
+/// input 기본스타일 지정 외 넓이변경
+/// @group basic
+/// @author chaeyoung
+/// @output
+///
+/// @example scss - input
+///   input{
+///     @include inputStyle;
+///   }
+
+@mixin inputStyle{
+    height: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+    border: 1px solid #000;
+    background:#fff;
+    box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"]{
+    @include inputStyle;
+    &.size1{
+        width: 100px;
+    }
+    &.size2{
+        width: 400px;
+    }
+}
+
+
+
+@mixin background-image($filename, $base-dir: '../images/',$position:0 0) {
+    background-image: url($base-dir + $filename);
+    background-position:$position;
+    background-repeat: no-repeat;
+}
+
+p{
+    @include background-image(ico + '.png',$position:50% 0)
+}
+
+
