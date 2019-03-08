@@ -1,243 +1,166 @@
 * {outline:0;}
 
-$inputBdb:#222;
-$inputpcolor: #C83845;
-$inputbg1:rgb(116,116,116);
+$inputBdb:#ddd;
+$inputpcolor: #000;
+$inputbg1:#ddd;
 $inputbg2:transparent;
 $inputfz:14px;
 
 
 
-//기본 mixin 
-@mixin transition($property,$duration,$ease){
-	-webkit-transition: $property $duration $ease;
-	-moz-transition: $property $duration $ease;
-	-o-transition: $property $duration $ease;
-	transition: $property $duration $ease;
-}
-@mixin transition-d($delay){
-	-webkit-transition-delay: $delay;
-	-moz-transition-delay: $delay;
-	-o-transition-delay: $delay;
-	transition-delay: $delay;
-}
+/// 백그라운드 파일명,경로,포지션 설정
+/// 이미지 형식을 설정할 경우 + '.jpg' 식으로 붙여주면 된다
+/// 
+/// @group form
+/// @author 채영
+/// @param {string} $filename - 파일이름
+/// @param {string} $base-dire - 경로
+/// @param {string} $position - 위치
+
 @mixin background-image($filename, $base-dir: '/images/',$position:0 0) {
     background-image: url($base-dir + $filename);
     background-position:$position;
     background-repeat: no-repeat;
 }
-@mixin btn($lineh){
-    display: block;
-    height: 100%;
-    line-height: $lineh + px;
-    text-align: center;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-@mixin btn_direc($direc){
-    @if $direc == 'right' {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 150px;
-        height: 60px;
-    }@else if $direc == 'bottom' {
-        width: 100%;
-        height: 40px;
-        margin-top: 20px;
-    }
-}
-
-//원형 
-@mixin circle($width,$height,$bg){
-    width: $width + px;
-    height: $height + px;
-    border-radius: 100%;
-    background: $bg;
-}
-//스텝리스트 기본
-@mixin stepbase{
-    display: inline-block;
-    line-height: 100px;
-    text-align: center;
-    color:#000;
-    font-size: 14px;
-}
-
-//input-box 기본 설정
-@mixin input_box($width,$height){
-    position: relative;
-    width:$width + px;
-    height: $height + px;
-    margin: 10px 0;
-    border: 0;
-    border-bottom: 2px solid $inputBdb;
-    box-sizing: border-box;
-}
-//밑에서 바가 지나갈경우
-@mixin bottombar($bt,$height){
-    position: absolute;
-    left: 0;
-    bottom: $bt + px;
-    width: 0;
-    height: $height + px;
-    background-color:$inputpcolor;
-    @include transition(all, 0.2s, ease);     
-}
-//전체 감싸는 바 -베이스
-@mixin allbar($direc,$width,$height){
-	content: ""; 
-	position: absolute; 
-	top: 0;
-	#{$direc}: 0;
-	width: $width + px; 
-	height: $height + px;
-	background-color:$inputpcolor;
-    @include transition(all, 0.2s, ease);     
-}
-@mixin allbarcommon{
-    ~ .bar--all::after, ~ .bar--all::before{
-        @content;
-    }
-}
-@mixin allbar_i_common{
-    ~ .bar--all i::after, ~ .bar--all i::before{
-        @content;
-    }
-}
-//input 백그라운드
-@mixin allbg(){
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: $inputbg1;
-    opacity: 0;
-    z-index: -1;
-    @include transition(all, 0.2s, ease); 
-}
-//라벨 -베이스
-@mixin inputlabel($val,$color){
-    position: absolute;
-    left: 0;
-    width: 100%;
-    top:$val + px;
-    color: $color;
-    z-index: -1;
-    @include transition(all, 0.2s, ease);
-}
-//focus
-@mixin focus{
-    &:focus{
-        @content;
-    }
-}
 
 
-.memeber-content{   
-    position: relative;
-    width: 500px;
-    margin: 100px auto 0;
-}
-//스텝박스
-.member-step{
-    font-size: 0;
-    text-align: center;
-    li{
-        @include stepbase;
-        @include circle(100,100,rgb(255,255,255));
-        border:1px solid rgb(0,0,0);
-        + li{
-            margin-left: 10px;
-            
+/// input 애니메이션 효과
+/// 
+/// @group form
+/// @author 채영
+/// @param {string} $inputAni - bottom:밑줄보더,all:전체보더,bg:백그라운드,bd:focus시,hv:호버시
+
+@mixin inputdirec($inputAni) { 
+    @if $inputAni == 'bottom'{
+        ~ .ani{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color:$inputpcolor;
+            transition: .2s;
+            -webkit-transition: .2s;
+        }
+        &:focus ~ .ani{
+            width: 100%;
         }
     }
-}
-
-//input,select 애니 
-.input__box{
-    @include input_box(500,30);
-    input,select{
-        width: 100%;
-        height: 100%;
-        font-size: $inputfz;
-        background: transparent;
-        border:0;
-        @include focus{
-            ~ .bar--bottom{
+    @else if $inputAni == 'all' {
+        transition: .4s;
+        -webkit-transition: .4s;
+        ~ .ani{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 40px;
+            transition: .4s;
+            -webkit-transition: .4s;
+        }
+        &:focus{
+            transition: .4s;
+            -webkit-transition: .4s; 
+            ~.ani{
                 width: 100%;
-                @include transition(all, 0.4s, ease);
+                border: 1px solid #000;
+                transition: .4s;
+                -webkit-transition: .4s;
             }
-            @include allbarcommon{
-                width: 100%; 
-                @include transition(all, 0.2s, ease);
-                transition-delay: 0.6s;
-            }
-            @include allbar_i_common{
-                height: 100%; 
-                @include transition(all, 0.2s, ease);
-            }
-            ~ .bar--all:after{
-                @include transition-d(0.2s);
-            }
-            ~ .bar--all i:after{
-                @include transition-d(0.4s);
-            }
-            ~ .bar--bg{
-                opacity: .2;
-                @include transition(all, 0.4s, ease);         
-            }
-            ~ label{
-                top: -10px;
-                @include transition(all, 0.4s, ease); 
-            }
-        }
-        @include allbarcommon{
-            @include allbar(right,0,2);
-            @include transition-d(0.2s);
-        }
-        @include allbar_i_common{
-            @include allbar(left,2,0);
-        }
-        ~ .bar--all::after{
-            top: auto; 
-            bottom: 0; 
-            right: auto; 
-            left: 0; 
-            transition-delay: 0.6s;            
-        }
-        ~ .bar--all i::after{
-            left: auto;
-            right: 0; 
-            top: auto; 
-            bottom: 0; 
-            transition-delay: 0.4s;         
-        }
-        &:valid ~ label {
-            top: -10px;
         }
     }
-    label{
-        @include inputlabel(5,red);
+    @else if $inputAni == 'bg' {    
+        background:transparent;
+        + .ani{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #ededed;
+            opacity: 0;
+            transition:0.5s;
+            z-index: -1;
+        }
+        &:focus + .ani{
+            transition:0.5s;
+            opacity: 1;
+        }
     }
-    .bar--bottom{
-        @include bottombar(-2,2);
+    @else if $inputAni == 'bd' {
+            transition:0.5s;
+        &:focus{
+            border: 1px solid #000;
+            transition:0.5s;
+        }
     }
-    .bar--bg{
-        @include allbg();
+    @else if $inputAni == 'hv' {
+        transition:border-color .25s ease-in-out,
+        box-shadow .1s ease-in-out,
+        background-color .25s ease-in-out,
+        color .25s ease-in-out;
+        &:hover{
+            border-color: #000;
+        }
+        &:focus{
+            box-shadow: 0 0 4px 2px #e7e7e7;
+        }
     }
 }
 
-//로그인 버튼
-.btn{
-    font-size: 0;
-    @include btn_direc(bottom);
-    a{
-        @include btn(40);
-        background: powderblue;
-        color: #fff;;
+/// form 에서 input 옆에 텍스트나 체크박스 추가시 위치설정
+/// 
+/// @group form
+/// @author 채영
+/// @param {string} $direc - bottom:아래,rught:위
+
+@mixin memberinfo($direc) {
+    @if $direc == 'right'{
+        margin-left: 10px;
+    }
+    @else if $direc == 'bottom'{
+        display: block;
+        padding: 20px 0 10px 0;
+    }
+}
+
+/// 변수($inputWidth)에 넓이값 지정하면 클래스가 적용되는 each 문
+/// class="input--넓이값" 을 해당 태그에 넣어준다
+/// @group form
+/// @author 채영
+
+$inputWidth:417,450,220,134;
+@each $property in $inputWidth {
+    .width--#{$property}{
+        width: $property + px + !important;
+    }
+}
+
+
+.memeber-content {
+    width: 1000px;
+    margin: 150px auto;
+}
+//기본 input,select style
+input[type="text"],
+input[type="password"],
+select{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid $inputbg1;
+    font-size: $inputfz;
+    box-sizing: border-box;
+}
+//input,select box
+.input__box{
+    position: relative;
+}
+.select_box{
+    select{
+        @include background-image(select-arrow + '.png',$position:right center);
+        appearance: none;
     }
 }
 
@@ -268,48 +191,62 @@ $inputfz:14px;
         }
     }
 }
-
-//아이디저장
-.login__check{
-    margin-top: 10px;
-    overflow: hidden;
-    .check__box{
-        float: left;
-    }
-    > a{
-        float: right;
-    }
-}
-
-
-//번호입력 
-.phone__box{
-    font-size: 0;
-    .input__box{
-        @include input_box(160,30);
-        display:inline-block;
-        font-size: 14px;
-        + .input__box{
-            margin-left: 10px;
+//테이블
+.basic__table{
+    width: 100%;
+    tr{
+        + tr td{
+            padding-top: 10px;
+        }
+        .check__box{
+            @include memberinfo(right);
         }
     }
-    .hypen{
-        position: absolute;
-        left: -5px;
-        top: 0;
-    }
-}
-
-
-.new__form{
-    position: relative;
-    .input__box{
-        @include input_box(280,30);
+    .cell{
+        font-size: 0;
+       > * {
+           display: inline-block;
+           margin-right: 10px;
+           font-size: 13px;
+           &:last-child{
+               margin: 0;
+           }
+       }
+       + .cell{
+           padding-top: 10px;
+       }
     }
     .btn{
-        @include btn_direc(right);
+        width: 120px;
+        height: 40px;
+        vertical-align: top;
+        border: 1px solid;
+        box-sizing: border-box;
+        font-size: 13px;
     }
 }
 
+
+
+
+
+//애니메이션 테스트용
+.basic__table{
+    .one input{
+        @include inputdirec(bottom);
+    }
+    .two input{
+        @include inputdirec(all);
+    }
+    .three input{
+        @include inputdirec(bg);
+    }
+    .four input{
+        @include inputdirec(bd);
+    }
+    .five input{
+        @include inputdirec(hv);
+    }
+}
 
 
