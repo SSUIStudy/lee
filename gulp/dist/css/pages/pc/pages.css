@@ -1,0 +1,231 @@
+/*components*/
+/*PAGES*/
+header .inner {
+  height: 40px;
+}
+
+header .inner .list li {
+  background: palegreen;
+}
+
+* {
+  outline: 0;
+}
+
+.width--417 {
+  width: 417px!important;
+}
+
+.width--450 {
+  width: 450px!important;
+}
+
+.width--220 {
+  width: 220px!important;
+}
+
+.width--134 {
+  width: 134px!important;
+}
+
+.memeber-content {
+  width: 1000px;
+  margin: 150px auto;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.input__box {
+  position: relative;
+}
+
+.select_box select {
+  background-image: url("/images/select-arrow.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.check__box {
+  position: relative;
+}
+
+.check__box input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+.check__box input[type="checkbox"]:checked + label {
+  background-image: url("/images/check_on.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.check__box label {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  min-width: 20px;
+  min-height: 20px;
+  padding: 0 0 0 27px;
+  background-image: url("/images/check_off.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.check__box label:hover {
+  background-image: url("/images/check_over.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.basic__table {
+  width: 100%;
+}
+
+.basic__table tr + tr td {
+  padding-top: 10px;
+}
+
+.basic__table tr .check__box {
+  margin-left: 10px;
+}
+
+.basic__table .cell {
+  font-size: 0;
+}
+
+.basic__table .cell > * {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.basic__table .cell > *:last-child {
+  margin: 0;
+}
+
+.basic__table .cell + .cell {
+  padding-top: 10px;
+}
+
+.basic__table .btn {
+  width: 120px;
+  height: 40px;
+  vertical-align: top;
+  border: 1px solid;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 13px;
+}
+
+.basic__table .one input ~ .ani {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  transition: .2s;
+  -webkit-transition: .2s;
+}
+
+.basic__table .one input:focus ~ .ani {
+  width: 100%;
+}
+
+.basic__table .two input {
+  transition: .4s;
+  -webkit-transition: .4s;
+}
+
+.basic__table .two input ~ .ani {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 40px;
+  transition: .4s;
+  -webkit-transition: .4s;
+}
+
+.basic__table .two input:focus {
+  transition: .4s;
+  -webkit-transition: .4s;
+}
+
+.basic__table .two input:focus ~ .ani {
+  width: 100%;
+  border: 1px solid #000;
+  transition: .4s;
+  -webkit-transition: .4s;
+}
+
+.basic__table .three input {
+  background: transparent;
+}
+
+.basic__table .three input + .ani {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #ededed;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.basic__table .three input:focus + .ani {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.basic__table .four input {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.basic__table .four input:focus {
+  border: 1px solid #000;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.basic__table .five input {
+  -webkit-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, color .25s ease-in-out, -webkit-box-shadow .1s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, color .25s ease-in-out, -webkit-box-shadow .1s ease-in-out;
+  transition: border-color .25s ease-in-out, box-shadow .1s ease-in-out, background-color .25s ease-in-out, color .25s ease-in-out;
+  transition: border-color .25s ease-in-out, box-shadow .1s ease-in-out, background-color .25s ease-in-out, color .25s ease-in-out, -webkit-box-shadow .1s ease-in-out;
+}
+
+.basic__table .five input:hover {
+  border-color: #000;
+}
+
+.basic__table .five input:focus {
+  -webkit-box-shadow: 0 0 4px 2px #e7e7e7;
+          box-shadow: 0 0 4px 2px #e7e7e7;
+}
+
+/*# sourceMappingURL=pages.css.map */
