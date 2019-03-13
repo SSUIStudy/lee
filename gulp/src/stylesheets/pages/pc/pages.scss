@@ -1,6 +1,6 @@
 
 /*components*/
-//@import "../../components/button", "../../components/animation", "../../components/function", "../../components/mixins";
+@import "../../components/mx/mixin","../../components/extend/extend";
 
 /*PAGES*/
 @import "product", "list", "sub", "form";

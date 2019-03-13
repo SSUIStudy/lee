@@ -1,0 +1,40 @@
+@mixin thumover($effect){
+    @if $effect == 'scale' {
+        opacity: 0;
+        @include position(absolute, $top: 0, $right: 0, $bottom: 0, $left: 0);
+        transition:all 400ms ease;
+        transform: scale(1.1);
+        @at-root .list li:hover .over{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    @else if $effect == 'opacity'{
+        opacity: 0;
+        @include position(absolute, $top: 0, $right: 0, $bottom: 0, $left: 0);
+        transition:opacity 0.7s;
+        @at-root .list li:hover .over{
+            opacity: 1;
+        }
+    }
+}
+
+.list{
+    overflow: hidden;
+    li{
+        width: 430px;
+        float: left;
+        .photo{
+            position: relative;
+            img{
+                width: 100%;
+            }
+            .over{
+                @include thumover(opacity);
+            }
+        }
+        + li{
+            margin-left: 20px;
+        }
+    }
+}

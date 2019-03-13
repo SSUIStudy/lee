@@ -6,49 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.min.css">
-    <link rel="stylesheet" href="/css/layout/pc/layout.css">
-    <link rel="stylesheet" href="/css/pages/pc/pages.css"> 
+    <link rel="stylesheet" href="/css/layout/mobile/layout.css">
+    <link rel="stylesheet" href="/css/pages/mobile/pages.css"> 
 </head>
 <body>
-
-<header>
-    <h1>LOGO</h1>
-</header>
-
 
 
 <!-- content 기본 input 일때 -->
 <div class="memeber-content">
-    <h1 class="title">기본 form</h1>
-    <form action="" class="">
+    <form action="" >
         <fieldset>
             <legend class="acc-hidden">로그인 폼</legend>
             <table class="basic__table">
                 <colgroup>
-                    <col style="width:155px;">
+                    <col style="width:75px;">
                     <col>
                 </colgroup>
                 <tbody>
                     <tr>
                         <th><label for="">아이디</label></th>
                         <td>
-                            <input type="text" placeholder="" class="input-size1">
+                            <input type="text" placeholder="">
                         </td>
                     </tr>
                     <tr>
                         <th><label for="">비밀번호</label></th>
                         <td>
-                            <input type="password" class="input-size1">
+                            <input type="password" class="">
                         </td>
                     </tr>
                     <tr>
                         <th><label for="">이메일</label></th>
-                        <td class="cell">
-                            <input type="text" class="input-size3">
-                            <div class="select_box input-size3">
-                                <select name="" id="">
-                                    <option value="">naver.com</option>
-                                </select>
+                        <td>
+                            <div>
+                                <input type="text" class="">
+                                <span class="dash">@</span>
+                                <div class="select_box">
+                                    <select name="" id="">
+                                        <option value="">naver.com</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="check__box">
                                 <input type="checkbox" name="mail1" id="mail1">
@@ -58,28 +55,32 @@
                     </tr>      
                     <tr>
                         <th><label for="">휴대폰번호</label></th>
-                        <td class="cell">
-                            <div class="select_box input-size4">
+                        <td class="phone">
+                            <div class="select_box">
                                 <select name="" id="">
                                     <option value="">010</option>
                                 </select>
                             </div>
-                            <span class="dash">-</span>
-                            <input type="text" class="input-size4">
-                            <span class="dash">-</span>
-                            <input type="text" class="input-size4">
+                            <div>
+                                <span class="dash">-</span>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <span class="dash">-</span>
+                                <input type="text">
+                            </div>
                         </td>
-                    </tr>   
+                    </tr> 
                     <tr>
                         <th><label for="">주소</label></th>
                         <td>  
-                            <div class="cell">
-                                <input type="text" class="input-size3">
-                                <button class="btn input-size4">우편번호 검색</button>
+                            <div>
+                                <input type="text" class="">
+                                <button class="btn">우편번호 검색</button>
                             </div>
-                            <div class="cell">
-                                <input type="text" class="input-size3">
-                                <input type="text" class="input-size1">
+                            <div>
+                                <input type="text" class="">
+                                <input type="text" class="">
                             </div>
                         </td>
                     </tr>             
@@ -93,13 +94,13 @@
 <br><br><br><br><br><br>
 
 
-<!-- content input animation 추가될때-->
+<!-- content input animation 추가될때
 <div class="memeber-content">
-    <h1 class="title">애니메이션 form</h1>
-    <form action="" class="">
+    <h1>애니메이션 form</h1>
+    <form action="" class="basic__table ani">
         <fieldset>
             <legend class="acc-hidden">로그인 폼</legend>
-            <table class="basic__table">
+            <table class="">
                 <colgroup>
                     <col style="width:155px;">
                     <col>
@@ -108,7 +109,7 @@
                     <tr>
                         <th><label for="">아이디</label></th>
                         <td class="one">
-                            <div class="input__box input-size1">
+                            <div class="input__box width--450">
                                 <input type="text" placeholder="" class="">
                                 <span class="ani"></span>
                             </div>
@@ -117,7 +118,7 @@
                     <tr>
                         <th><label for="">비밀번호</label></th>
                         <td class="two">
-                            <div class="input__box input-size1">
+                            <div class="input__box width--450">
                                 <input type="text" placeholder="" class="">
                                 <span class="ani"></span>
                             </div>
@@ -126,7 +127,7 @@
                     <tr>
                         <th><label for="">비밀번호 확인</label></th>
                         <td class="three">
-                            <div class="input__box input-size1">
+                            <div class="input__box width--450">
                                 <input type="text" placeholder="" class="">
                                 <span class="ani"></span>
                             </div>
@@ -135,15 +136,16 @@
                     <tr>
                         <th><label for="">닉네임</label></th>
                         <td class="four">
-                            <div class="input__box input-size1">
+                            <div class="input__box width--450">
                                 <input type="text" placeholder="" class="">
+                               
                             </div>
                         </td>
                     </tr>   
                     <tr>
                         <th><label for="">닉네임</label></th>
                         <td class="five">
-                            <div class="input__box input-size1">
+                            <div class="input__box width--450">
                                 <input type="text" placeholder="" class="">
                             </div>
                         </td>
@@ -151,8 +153,8 @@
                     <tr>
                         <th><label for="">이메일</label></th>
                         <td class="cell">
-                            <input type="text" class="input-size3">
-                            <div class="select_box input-size3">
+                            <input type="text" class="width--220">
+                            <div class="select_box width--220">
                                 <select name="" id="">
                                     <option value="">naver.com</option>
                                 </select>
@@ -166,27 +168,27 @@
                     <tr>
                         <th><label for="">휴대폰번호</label></th>
                         <td class="cell">
-                            <div class="select_box input-size4">
+                            <div class="select_box width--134">
                                 <select name="" id="">
                                     <option value="">010</option>
                                 </select>
                             </div>
                             <span class="dash">-</span>
-                            <input type="text" class="input-size4">
+                            <input type="text" class="width--134">
                             <span class="dash">-</span>
-                            <input type="text" class="input-size4">
+                            <input type="text" class="width--134">
                         </td>
                     </tr>   
                     <tr>
                         <th><label for="">주소</label></th>
                         <td>  
                             <div class="cell">
-                                <input type="text" class="input-size3">
-                                <button class="btn input-size4">우편번호 검색</button>
+                                <input type="text" class="width--220">
+                                <button class="btn width--134">우편번호 검색</button>
                             </div>
                             <div class="cell">
-                                <input type="text" class="input-size3">
-                                <input type="text" class="input-size1">
+                                <input type="text" class="width--220">
+                                <input type="text" class="width--450">
                             </div>
                         </td>
                     </tr>             
@@ -194,15 +196,13 @@
             </table>
         </fieldset>
     </form>
-</div>
+</div>-->
 
 
-<br><br><br><br><br><br>
 
 
 
 <!-- //content -->
-<a href=""></a>
 
 </body>
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
