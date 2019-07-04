@@ -326,5 +326,5 @@ v-show  는 항상 렌더링 되어 DOM에 남아있고, display 속성으로 �
 
 
 #### 참고
-<a href="https://kr.vuejs.org/v2/guide/computed.html">computed와 watch</a>
+<a href="https://kr.vuejs.org/v2/guide/computed.html">computed와 watch</a> <br>
 <a href="https://kr.vuejs.org/v2/guide/conditional.html">조건부렌더링</a>
