@@ -85,7 +85,7 @@
 
 ````
 
-* .computed VS methods
+* computed VS methods
     
     두개의 속성 모두 최종 결과는 동일하다 
 
@@ -265,8 +265,13 @@ v-show  는 항상 렌더링 되어 DOM에 남아있고, display 속성으로 �
 - 뷰 ⇄ 데이터 형태로 바인딩 (데이터와 인스턴스가 일치)
 - 양방향 데이터 바인딩을 도와주는 디렉티브가 v-model
 - 폼에 관련된 태그에만 사용(select,input,textarea)
+- v-model은 모든 form 엘리먼트 초기 value, checked, selected 속성 무시하며 data 옵션 안에 있는 JavaScript에서 초기값을 선언
+
+
 
 ````
+기본 예 > 
+
    <div id="app">
 
         <input type="text" v-model="tit">
@@ -284,7 +289,77 @@ v-show  는 항상 렌더링 되어 DOM에 남아있고, display 속성으로 �
         })   
     </script>
 ````
+*input 값이 들어오면 tit(data)값이 자동으로 바뀐다*
 
+1. checkbox
+- 하나의 체크박스는 boolean 값을 가진다
+- 여러개의 체크박스는 배열값을 가진다
+
+````
+  <div id="app">
+	<input type="checkbox" name="" id="apple" value="apple" v-model="chkname">
+	<label for="apple">apple</label>
+	<input type="checkbox" name="" id="orange" value="orange" v-model="chkname">
+	<label for="orange">orange</label>
+	<p>{{ chkname }}</p>
+</div>
+
+ <script>
+ 
+	new Vue({
+	  el: '#app',
+	  data: {
+		chkname: []
+	  }
+	});
+ </script>
+````
+2. select
+````
+  <div id="app">
+	<select name="" id="" v-model="selecname">
+		<option value="a">a</option>
+		<option value="b">b</option>
+	</select>
+	<p>{{ selecname }}</p>
+</div>
+
+ <script>
+ 
+	new Vue({
+	  el: '#app',
+	  data: {
+		selecname: ''
+	  }
+	});
+ 
+ </script>
+
+````
+3.v-for 를 활용한 v-model 응용
+
+````
+    <div id="app">
+        <select v-model="selected">
+            <option v-for="options in option" v-bind:value="options.val" >{{ options.name }}</option>
+        </select>
+        <span>선택: {{ selected }}</span>
+    </div>
+
+    <script>
+    
+    new Vue({
+        el: '#app',
+        data: {
+            option:[
+                {name:'채영',val:'채영'},
+                {name:'채영2',val:'채영2'}
+            ],
+            selected:''
+        }
+    })
+    </script>
+````
 
 ### 5. watch 감시자
 - watch는 감시할 데이터를 지정하고 그 데이터가 바뀌면 함수를 호출
@@ -312,7 +387,7 @@ v-show  는 항상 렌더링 되어 DOM에 남아있고, display 속성으로 �
 ````
 <img src="images/console3.png">
 
-*콘솔에서 확인해보면 input 에 값이 들어 올때마다 출력되는 것 을 확인 할 수 있다*
+*콘솔에서 확인해보면 input 에 값이 들어 올때마다 출력되는 것 을 확인 할 수 있다<br>데이터의 값이 변할때마다 함수가 호출된다*
 
 
 ### 6. computed methods watch 비교 
@@ -326,5 +401,6 @@ v-show  는 항상 렌더링 되어 DOM에 남아있고, display 속성으로 �
 
 
 #### 참고
-<a href="https://kr.vuejs.org/v2/guide/computed.html">computed와 watch</a> <br>
-<a href="https://kr.vuejs.org/v2/guide/conditional.html">조건부렌더링</a>
+- <a href="https://kr.vuejs.org/v2/guide/computed.html">computed와 watch</a> <br>
+- <a href="https://kr.vuejs.org/v2/guide/conditional.html">조건부렌더링</a> <br>
+- <a href="https://kr.vuejs.org/v2/guide/forms.html">폼 입력 바인딩</a>
