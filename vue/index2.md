@@ -365,6 +365,7 @@ v-show  는 항상 렌더링 되어 DOM에 남아있고, display 속성으로 �
 - watch는 감시할 데이터를 지정하고 그 데이터가 바뀌면 함수를 호출
 - 상태 값이 변경될 때마다 같은 작업을 해야 할 경우
 
+> watch: {  주시할 변수명: 실행할 콜백함수(newValue, oldValue) }
 ````
  <div id="app">
         <input type="text" name="" id="" v-model="normal">
@@ -385,6 +386,8 @@ v-show  는 항상 렌더링 되어 DOM에 남아있고, display 속성으로 �
         })   
     </script>
 ````
+
+
 <img src="images/console3.png">
 
 *콘솔에서 확인해보면 input 에 값이 들어 올때마다 출력되는 것 을 확인 할 수 있다<br>데이터의 값이 변할때마다 함수가 호출된다*
